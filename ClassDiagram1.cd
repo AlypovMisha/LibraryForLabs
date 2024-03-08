@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LibraryForLabs.Cars">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIAAAIiAAACAgAEAABABAACUAACAAAACgAABAAA=</HashCode>
+      <FileName>Cars.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LibraryForLabs.OffRoadCar">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAgAAAAAAAAGCEAABgAAACAAAAAAA=</HashCode>
+      <FileName>OffRoadCar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryForLabs.PassengerCar">
+    <Position X="10.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAAAACAAAAAgAAAIAAAAACEAAAAAAACAAAAQAA=</HashCode>
+      <FileName>PassengerCar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryForLabs.TruckCar">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAgQAAAAEAAACEAAAAAAACAAAAAAA=</HashCode>
+      <FileName>TruckCar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
