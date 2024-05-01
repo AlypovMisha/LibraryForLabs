@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+using System;
 
 namespace LibraryForLabs
 {
@@ -55,6 +54,15 @@ namespace LibraryForLabs
             color = car.color;
             cost = car.cost;
             clearance = car.clearance;
+        }
+
+        public Cars(string brand, int releaseYear, string color, int cost, double clearance)
+        {
+            this.brand = brand;
+            this.releaseYear = releaseYear;
+            this.color = color;
+            this.cost = cost;
+            this.clearance = clearance;
         }
 
         // Свойство для доступа к марке
@@ -229,29 +237,88 @@ namespace LibraryForLabs
 
         }
 
-        //Реализация интерфейса Comparable
-        public int CompareTo(object obj)
+        // Реализация интерфейса Comparable
+        public virtual int CompareTo(object obj)
         {
+            if (obj == null) return 1;
+
             Cars car = obj as Cars;
             if (car != null)
-                return Cost.CompareTo(car.Cost);
+            {
+                //сравниваем по цене
+                int costComparison = Cost.CompareTo(car.Cost);
+                if (costComparison != 0)
+                {
+                    return costComparison;
+                }
+
+                //сравниваем по марке автомобиля
+                int brandComparison = Brand.CompareTo(car.Brand);
+                if (brandComparison != 0)
+                {
+                    return brandComparison;
+                }
+
+                //сравниваем по году выпуска
+                int yearComparison = ReleaseYear.CompareTo(car.ReleaseYear);
+                if (yearComparison != 0)
+                {
+                    return yearComparison;
+                }
+
+                //сравниваем по клиренсу
+                int clearanceComparison = Clearance.CompareTo(car.Clearance);
+                if (clearanceComparison != 0)
+                {
+                    return clearanceComparison;
+                }
+                int colorComparison = Color.CompareTo(car.Color);
+                if (colorComparison != 0)
+                {
+                    return colorComparison;
+                }
+
+                return GetType().Name.CompareTo(obj.GetType().Name);
+
+
+            }
             else
-                return -1;
+            {
+                throw new ArgumentException("Объект не является экземпляром класса Cars.");
+            }
         }
 
-        //Глубокое копирование
-        public object Clone()
+        //Реализация интерфейса ICloneable
+        public virtual object Clone()
         {
-            Cars clone = (Cars)this.MemberwiseClone();
-            clone.id = new IdNumber(id.number);
-            return clone;
+            return new Cars(this);
         }
+
 
         //Поверхностное копирование
         public object ShallowCopy()
         {
-            return this.MemberwiseClone();
+            return MemberwiseClone();
+        }
+
+        public override string ToString()
+        {
+            return $"{Brand}, {ReleaseYear}, {Color}, {Cost}, {Clearance}, {id}";
+        }
+
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + Brand.GetHashCode();
+                hash = hash * 3 + ReleaseYear.GetHashCode();
+                hash = hash * 7 + Color.GetHashCode();
+                hash = hash * 11 + Cost.GetHashCode();
+                hash = hash * 13 + Clearance.GetHashCode();
+                return hash;
+            }
         }
     }
-
 }
