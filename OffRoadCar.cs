@@ -1,10 +1,8 @@
 ﻿using System;
 namespace LibraryForLabs
 {
-    public class OffRoadCar : Cars 
+    public class OffRoadCar : TruckCar
     {
-        //Полный привод
-        private bool awd;
         //Тип бездорожья
         private string offRoadType;
 
@@ -12,34 +10,21 @@ namespace LibraryForLabs
         static String[] offRoadTypes = { "gravel roads", "sand dunes", "swamps and bogs", "mountain trails and passes", "forest roads", "desert plains", "snow and ice surfaces", "concrete or stone tracks" };
 
         //Конструктор без параметров
-        public OffRoadCar():base()
+        public OffRoadCar() : base()
         {
-            awd = false;
+            Awd = false;
             offRoadType = "gravel roads";
         }
 
         //Конструктор с параметрами
-        public OffRoadCar(string brand, int releaseYear, string color, int cost, double clearance, bool awd, string offRoadType, int idNumber) : base(brand, releaseYear, color, cost, clearance, idNumber)
+        public OffRoadCar(string brand, int releaseYear, string color, int cost, double clearance, int loadCapacity, bool awd, string offRoadType, int idNumber) : base(brand, releaseYear, color, cost, clearance, loadCapacity, idNumber)
         {
             Awd = awd;
             OffRoadType = offRoadType;
         }
 
         // Свойство для доступа к полному приводу
-        public bool Awd
-        {
-            get
-            {
-                return awd;
-            }
-            set
-            {
-                if (value)                
-                    awd = value;               
-                else
-                    awd = false;
-            }
-        }
+        public bool Awd { get; set; }
 
         // Свойство для доступа к типу бездорожья
         public string OffRoadType
@@ -62,26 +47,30 @@ namespace LibraryForLabs
         public override void Show()
         {
             base.Show();
-            Console.WriteLine("Присутствие полного привода: " + awd);
+            Console.WriteLine("Присутствие полного привода: " + Awd);
             Console.WriteLine("Тип бездорожья: " + offRoadType);
         }
         //Метод для вывода информации о машине не виртуальный
         public new void ShowNotVirtual()
         {
             base .ShowNotVirtual();
-            Console.WriteLine("Присутствие полного привода: " + awd);
+            Console.WriteLine("Присутствие полного привода: " + Awd);
             Console.WriteLine("Тип бездорожья: " + offRoadType);
         }
+
+
         //Метод для ввода информации об автомобиле
         public override void Init()
         {
             base.Init();
             Console.Write("Введите привод (true - полный, false - не полный): ");
-            string aw = Console.ReadLine();
-            if (aw == "true")
-                Awd= true;
-            else
-                Awd = false;
+            bool awFlag;
+            if (!bool.TryParse(Console.ReadLine(), out awFlag))
+            {
+                Console.WriteLine("Некорректный ввод. Привод будет установлен в значение по умолчанию.");
+                awFlag = false;
+            }
+            Awd = awFlag;
             Console.Write("Введите тип бездорожья: ");
             OffRoadType = Console.ReadLine();
         }
@@ -101,6 +90,63 @@ namespace LibraryForLabs
                 return (Awd == car.Awd) && (OffRoadType == car.OffRoadType) && base.Equals(car);
             else
                 return false;
+        }
+
+        //Реализация интерфейса ICloneable
+        public override object Clone()
+        {
+            return new OffRoadCar(this.Brand, this.ReleaseYear, this.Color, this.Cost, this.Clearance, this.loadCapacity, this.Awd, this.OffRoadType, this.id.number);
+        }
+
+        //Поверхностное копирование
+        public new object ShallowCopy()
+        {
+            return base.ShallowCopy();
+        }
+
+        public override string ToString()
+        {
+            return $"{Brand}, {ReleaseYear}, {Color}, {Cost}, {Clearance}, {Awd}, {OffRoadType}, {LoadCapacity}, {id}";
+        }
+        //// Метод для сравнения
+        //public override int CompareTo(object obj)
+        //{
+        //    if (obj == null) return 1;
+
+        //    if (obj is OffRoadCar otherOffRoadCar)
+        //    {
+        //        int baseComparisonResult = base.CompareTo(obj);
+
+        //        // Сначала сравниваем общие атрибуты родительского класса
+        //        if (baseComparisonResult != 0) return baseComparisonResult;
+
+        //        // Затем сравниваем по уникальным для внедорожника атрибутам
+        //        if (Awd != otherOffRoadCar.Awd) return Awd.CompareTo(otherOffRoadCar.Awd);
+        //        return OffRoadType.CompareTo(otherOffRoadCar.OffRoadType);
+        //    }
+        //    else
+        //    {
+        //        throw new ArgumentException("Объект не является экземпляром класса OffRoadCar.");
+        //    }
+        //}
+
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + Brand.GetHashCode();
+                hash = hash * 23 + ReleaseYear.GetHashCode();
+                hash = hash * 23 + Color.GetHashCode();
+                hash = hash * 23 + Cost.GetHashCode();
+                hash = hash * 23 + Clearance.GetHashCode();
+                hash = hash * 23 + LoadCapacity.GetHashCode();
+                hash = hash * 23 + Awd.GetHashCode();
+
+                return hash;
+                
+            }
         }
     }
 }

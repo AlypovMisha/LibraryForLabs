@@ -5,7 +5,7 @@ namespace LibraryForLabs
     public class TruckCar : Cars
     {
         //Грузоподъемность
-        private int loadCapacity;
+        protected int loadCapacity;
 
         //Конструктор без параметра
         public TruckCar() : base()
@@ -73,6 +73,63 @@ namespace LibraryForLabs
                 return (LoadCapacity == car.LoadCapacity) && base.Equals(car);
             else
                 return false;
+        }
+
+        //Реализация интерфейса ICloneable
+        public override object Clone()
+        {
+            return new TruckCar(this.Brand, this.ReleaseYear, this.Color, this.Cost, this.Clearance, this.LoadCapacity, this.id.number);
+        }
+
+
+        //Поверхностное копирование
+        public new object ShallowCopy()
+        {
+            return base.ShallowCopy();
+        }
+
+        public override string ToString()
+        {
+            return $"{Brand}, {ReleaseYear}, {Color}, {Cost}, {Clearance}, {LoadCapacity}, {id}";
+        }
+        //// Метод для сравнения
+        //public override int CompareTo(object obj)
+        //{
+        //    if (obj == null) return 1;
+
+        //    if (obj is TruckCar otherTruckCar)
+        //    {
+        //        int baseComparisonResult = base.CompareTo(obj);
+
+        //        // Сначала сравниваем общие атрибуты родительского класса
+        //        if (baseComparisonResult != 0) return baseComparisonResult;
+
+        //        // Затем сравниваем по уникальным для грузового автомобиля атрибутам
+        //        return LoadCapacity.CompareTo(otherTruckCar.LoadCapacity);
+        //    }
+        //    else
+        //    {
+        //        throw new ArgumentException("Объект не является экземпляром класса TruckCar.");
+        //    }
+        //}
+
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + Brand.GetHashCode();
+                hash = hash * 23 + ReleaseYear.GetHashCode();
+                hash = hash * 23 + Color.GetHashCode();
+                hash = hash * 23 + Cost.GetHashCode();
+                hash = hash * 23 + Clearance.GetHashCode();
+                hash = hash * 23 + LoadCapacity.GetHashCode();
+
+
+                return hash;
+
+            }
         }
     }
 }

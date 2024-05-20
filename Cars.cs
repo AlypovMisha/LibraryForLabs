@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+﻿using System;
+=======
 using System;
+>>>>>>> e2a177bab3cdf4453e0781883a1ff2a0c20c5386
 
 namespace LibraryForLabs
 {
@@ -161,7 +165,7 @@ namespace LibraryForLabs
             Console.WriteLine($"Цвет: {Color}");
             Console.WriteLine($"Цена (в руб): {Cost}");
             Console.WriteLine($"Клиренс (в см): {Clearance}");
-            Console.WriteLine($"id: {id}");
+            //Console.WriteLine($"id: {id}");
         }
 
         //Метод для вывода информации о машине не виртуальный
@@ -191,7 +195,7 @@ namespace LibraryForLabs
             vl = ParseToInt(Console.ReadLine());
             Clearance = vl;
             Console.Write("Введите id: ");
-            vl = ParseToInt(Console.ReadLine());
+            vl = 1;
             id = new IdNumber(vl);
         }
 
@@ -203,7 +207,7 @@ namespace LibraryForLabs
             Color = colors[rand.Next(colors.Length)];
             Cost = rand.Next(10000, 1000000);
             Clearance = rand.Next(10, 40);
-            id = new IdNumber(rand.Next(500));
+            id = new IdNumber(1);
         }
 
         //Метод для сравнения
@@ -303,7 +307,11 @@ namespace LibraryForLabs
 
         public override string ToString()
         {
+<<<<<<< HEAD
+            return $"{Brand}, {ReleaseYear}, {Color}, {Cost}, {Clearance}";
+=======
             return $"{Brand}, {ReleaseYear}, {Color}, {Cost}, {Clearance}, {id}";
+>>>>>>> e2a177bab3cdf4453e0781883a1ff2a0c20c5386
         }
 
 

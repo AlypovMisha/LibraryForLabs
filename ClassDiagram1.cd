@@ -1,33 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="LibraryForLabs.Cars">
-    <Position X="10.25" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAIAAAIiAAACAgAEAABABAACUAACAAAACgAABAAA=</HashCode>
+      <HashCode>AAEAAIAAAIiAAASEgAEAABABAACUAICAAAACgBABAhA=</HashCode>
       <FileName>Cars.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="LibraryForLabs.OffRoadCar">
-    <Position X="12.75" Y="4.75" Width="1.5" />
+    <Position X="8" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAgAAAAAAAAGCEAABgAAACAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAAAAEgAAAAAAAACCEAIBgAAACABAAABA=</HashCode>
       <FileName>OffRoadCar.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LibraryForLabs.PassengerCar">
-    <Position X="10.25" Y="7.25" Width="1.5" />
+    <Position X="11.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAIAAAAACAAAAAgAAAIAAAAACEAAAAAAACAAAAQAA=</HashCode>
+      <HashCode>AABAIAAAAACAAAgEgAAAIAAAAACEAIAAAAACABAAQBA=</HashCode>
       <FileName>PassengerCar.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LibraryForLabs.TruckCar">
-    <Position X="7.75" Y="4.75" Width="1.5" />
+    <Position X="8" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAgQAAAAEAAACEAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAAAAEgQAAAAEAAACEAIAAAAACABAAABA=</HashCode>
       <FileName>TruckCar.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="LibraryForLabs.DialClock">
+    <Position X="15" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAJAAAAjQAAAAQAEAIggAAIAEAAIADgBCAAAAAAA=</HashCode>
+      <FileName>DialClock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LibraryForLabs.IdNumber">
+    <Position X="15" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAEgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IdNumber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarComparer">
+    <Position X="13.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>CarComparer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="LibraryForLabs.IInit">
+    <Position X="13.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAEAAAAAAACAAAAAAA=</HashCode>
+      <FileName>IInit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
